@@ -39,9 +39,7 @@ class Solution {
         TreeNode node = new TreeNode(pivotPoint);
         
         if(high == low)return node;
-        
-        if(high == low) return node;
-        
+                
         node.left = toBST(arr, low, mid-1);
         node.right = toBST(arr, mid+1, high);
         return node;
