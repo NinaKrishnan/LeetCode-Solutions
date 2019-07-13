@@ -1,0 +1,57 @@
+/**
+ * Problem: Reverse a singly linked list.
+ * Example:
+ *  Input: 1->2->3->4->5->NULL
+ *  Output: 5->4->3->2->1->NULL
+ */
+
+
+
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head)
+    {
+      
+        return reverseLinkedList(head);
+        
+        
+        
+        
+    }
+    
+    //Recursive solution; time complexity 0ms, faster than 100% of submissions,
+    //Space complexity 37 MB, better than 99.86% of submissions.
+    
+    public ListNode reverseLinkedList(ListNode head)
+    {
+          ListNode current = head; //create a node, current, and set it equal to head.
+                                   //Both head and current are now pointing to the head node. 
+        
+        if(current == null)return null; //if the linked list is empty, return null.
+        
+        if(current.next == null) //after recursively traversing the list, current.next will be null
+        {                        //when we have reached the last node
+            head = current; //When we reach the last node, set head pointer to that node
+            return head; //return and recurse back up call stack
+        }
+        
+        ListNode node  = reverseLinkedList(current.next); //recurse down list to find tail
+        current.next.next = current; set next pointer of next node to current node; this reverses the pointer
+        current.next = null; //make original pointer null
+        
+        return node; return node
+        
+    }
+    
+    
+    
+
+}
